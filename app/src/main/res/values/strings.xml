@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Audio Player</string>
+    <string name="generic_error">Error playing music</string>
+    <string name="media_not_found">Media not found</string>
+</resources>
