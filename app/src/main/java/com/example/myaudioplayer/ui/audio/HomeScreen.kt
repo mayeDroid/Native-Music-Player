@@ -285,7 +285,7 @@ fun ArtistInformation(
     audio: Audio
 ) {
     Row(
-        modifier = Modifier.padding(4.dp),
+        modifier = modifier.padding(4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         PlayerIcons(

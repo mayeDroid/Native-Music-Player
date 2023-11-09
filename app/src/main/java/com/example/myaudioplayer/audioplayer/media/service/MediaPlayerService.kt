@@ -54,10 +54,6 @@ class MediaPlayerService : MediaBrowserServiceCompat() {
     @Inject
     lateinit var exoPlayer: ExoPlayer
 
-
-
-
-
     private val serviceJob = SupervisorJob()
     private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
 
@@ -118,12 +114,12 @@ class MediaPlayerService : MediaBrowserServiceCompat() {
             mediaSource.load()
         }
 
-        mediaSessionConnector = MediaSessionConnector(mediaSession).apply {
+       /* mediaSessionConnector = MediaSessionConnector(mediaSession).apply {
             setPlaybackPreparer(AudioPlaybackPreparer())
             setQueueNavigator(MediaQueNavigator(mediaSession))
-            //setPlayer(exoPlayer)
+            setPlayer(exoPlayer)
 
-        }
+        }*/
         mediaPlayerNotificationManager.showNotification(exoPlayer)
 
     }
@@ -159,6 +155,7 @@ class MediaPlayerService : MediaBrowserServiceCompat() {
     }
 
     override fun onCustomAction(action: String, extras: Bundle?, result: Result<Bundle>) {
+        super.onCustomAction(action, extras, result)
         when(action){
             K.START_MEDIA_PLAYBACK_ACTION ->
                 mediaPlayerNotificationManager.showNotification(exoPlayer)
